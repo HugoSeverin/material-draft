@@ -6,16 +6,19 @@ var packagejson = require('../package.json');
 module.exports = {
 
   //  Defines the entrypoint of our application.
-  entry: [
-    'babel-polyfill',
-    // path.resolve(__dirname, '../src/index.js')
-    path.resolve(__dirname, '../src/examples/basic.js')
-  ],
+  entry: {
+    'example-basic': [
+      'babel-polyfill',
+      path.resolve(__dirname, '../src/examples/basic.js')
+    ],
+    'material-draft': [
+      path.resolve(__dirname, '../lib/index.js')
+    ]
+  },
 
-  //  Bundle to a ./build/public/bundle.js file.
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'material-draft.js'
+    filename: '[name].js'
   },
 
   //  Use babel for anything that is *.js or *.jsx.

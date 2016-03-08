@@ -2,14 +2,15 @@
   "name": "material-draft",
   "version": "0.0.1-beta1",
   "description": "Rich Text Editor using Draft.js and Material-UI",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "prestart": "npm install",
     "start": "webpack-dev-server --config ./tooling/webpack.config.js --port 8081 --inline --quiet",
     "lint": "eslint ./src",
     "clean": "rm -rf ./dist/public",
     "prebuild": "npm run clean",
-    "build": "webpack --config ./tooling/webpack.config.js --progress --colors --bail"
+    "build": "babel ./src --out-dir ./lib",
+    "webpack": "webpack --config ./tooling/webpack.config.js --progress --colors --bail"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,7 @@
     "react-tap-event-plugin": "0.2.2"
   },
   "devDependencies": {
-    "babel": "6.5.2",
+    "babel-cli": "^6.6.5",
     "babel-core": "6.3.17",
     "babel-eslint": "5.0.0",
     "babel-loader": "6.2.3",

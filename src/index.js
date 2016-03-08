@@ -9,6 +9,10 @@ class MaterialDraft extends Component {
     onChange: PropTypes.func.isRequired
   };
 
+  constructor (props) {
+    super(props);
+  }
+
   state = { editorState: EditorState.createEmpty() };
 
   handleChange = editorState => {
@@ -35,6 +39,7 @@ class MaterialDraft extends Component {
       <div onClick={this.focus}>
         <Toolbar />
         <Editor
+          {...this.props}
           editorState={editorState}
           ref="editor"
           onChange={this.handleChange}
