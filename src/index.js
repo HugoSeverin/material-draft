@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
 
+import Toolbar from './toolbar';
+
 class MaterialDraft extends Component {
 
   static propTypes = {
@@ -31,6 +33,7 @@ class MaterialDraft extends Component {
     const { editorState } = this.state;
     return (
       <div onClick={this.focus}>
+        <Toolbar />
         <Editor
           editorState={editorState}
           ref="editor"
