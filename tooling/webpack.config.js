@@ -8,13 +8,14 @@ module.exports = {
   //  Defines the entrypoint of our application.
   entry: [
     'babel-polyfill',
-    path.resolve(__dirname, '../src/index.js')
+    // path.resolve(__dirname, '../src/index.js')
+    path.resolve(__dirname, '../src/examples/basic.js')
   ],
 
   //  Bundle to a ./build/public/bundle.js file.
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js'
+    filename: 'material-draft.js'
   },
 
   //  Use babel for anything that is *.js or *.jsx.
@@ -35,7 +36,7 @@ module.exports = {
   //  file to the build folder.
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html'),
+      template: path.resolve(__dirname, '../examples/basic.html'),
       inject: 'body', // Inject webpack scripts into the body.
       hash: true
     }),
